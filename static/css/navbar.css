@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+/* theere are some bootstrap customizatons */
+
+#navBar > .bg-light {
+    background-color: #ddeee6 !important;
+}
+
+#navBar .navbar-nav {
+    margin-left: 20px;
+
+}
+
+#navBar .navbar-brand {
+    font-family: 'Otomanopee One', sans-serif;
+
+}
+
+#navBar .navbar-light .navbar-brand {
+    color: rgb(35, 31, 41);
+}
+
+#navBar .navbar-light .navbar-brand:hover{
+    color: rgb(45, 36, 56) !important;
+}
+
+#navBar .navbar-light .navbar-nav .nav-link {
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    }
+
+#navBar .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(119, 119, 119);
+    }
+
+#navBar .navbar-light .navbar-nav .nav-link.active,
+        .navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(119, 119, 119);
+    }

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+Torch Help Desk
+{% endblock title %}
+
+{% block content %}
+<div id="home">
+    <div>
+        <!-- issue form here -->
+        <form class="forms" method='POST' action="{% url 'home' %}" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="title">
+                <h4>Report an issue</h4>
+            </div>
+            <div class="input-container file-container">
+                <label for="img_file" style="opacity: 0.7;">(screenshot optional)</label><br>
+                <input type="file" name="img_file">
+            </div>
+            <div class="input-container">
+                <label for="name">Title</label><br>
+                <input type="text" name="title" placeholder="make an issue" required>
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label><br>
+                <input type="email" name="email" placeholder="helpdesktorch@gmail.com" required>
+            </div>
+            <div class="des-container">
+                <label for="des">Describe the issue</label><br>
+                <textarea name="des" cols="20" placeholder="describe the whole issue please" required></textarea>
+            </div>
+            <div class="button-container">
+                <button type="submit">Submit issue</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock content %}
+

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+success submission
+{% endblock title %}
+
+{% block content %}
+<div>
+    <div class="success-container">
+        <div class="alert alert-light" role="alert">
+            Thanks for giving us the feedback!
+            <div>
+                <p></p>
+                <a href="/">Report another issue</a>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .success-container{
+        width: 500px;
+        margin: auto;
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+{% endblock content %}

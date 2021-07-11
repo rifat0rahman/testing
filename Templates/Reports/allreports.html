@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}
+  All reports
+{% endblock title %}
+
+{% block content %}
+<div id="reports">
+  <div class="header">
+    <h4>All active issues</h4>
+    <i>total {{reports|length}} issues are running</i>
+  </div>
+  <table class="table  table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">0</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Issue</th>
+        <!-- filter button -->
+        <th scope="col filter">
+          <div class="dropdown">
+            <button class="btn btn-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Filter
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <!-- filter data submittion -->
+              <li>
+                <form action="{% url 'reports' %}" method="POST" id="otn">
+                  {% csrf_token %}
+                  <input type="text" name='otn' value="otn" hidden>
+                  <!-- this is a tricks for submitting a form wiht a tag -->
+                  <a href="javascript:{}" class="dropdown-item" onclick="document.getElementById('otn').submit();">Older
+                    to Newer</a>
+                </form>
+              </li>
+
+              <li>
+                <form action="{% url 'reports' %}" method="POST" id="nto">
+                  {% csrf_token %}
+                  <input type="text" name='nto' value="nto" hidden>
+                  <a href="javascript:{}" class="dropdown-item" onclick="document.getElementById('nto').submit();">Older
+                    to Newer</a>
+                </form>
+              </li>
+            <!-- filter submition ends -->
+            </ul>
+          </div>
+        </th>
+        <!-- filter button ends -->
+      </tr>
+    </thead>
+
+    <!-- display the reports data here -->
+    <tbody class="tableBody">
+      {% for report in reports %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td><img src='{{report.image.url}}' alt="issue ss" class="table-img"></td>
+        <td>{{report.name|truncatechars:15}}</td>
+        <td>{{report.email}}</td>
+
+        <td>
+          <a href="" data-bs-toggle="modal" data-bs-target="#modal{{report.id}}">See the issue</a>
+        </td>
+
+        <!-- modal -->
+        <div class="modal fade" id="modal{{report.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Report Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+               <!-- modal body here -->
+              <div class="modal-body">
+                <div class="containers">
+                  <div class="infos">
+                    <h4>{{ report.name}}</h4>
+                    <i><small>{{report.email}}</small></i><br>
+                    <i><small>{{report.time}}</small></i>
+                  </div>
+                  <div class="screenshot">
+                    <img src="{{report.image.url}}" alt="report screentshot" class="modal-img">
+                  </div>
+                  <div class="issues">
+                    <h4>Issue Description</h4>
+                    <p>{{report.description}}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- modal ends here -->
+              
+              <!-- this is for reply to the user -->
+              <div class="modal-footer">
+                <div class="footer-container">
+                  <div>
+                    <p>Send a reply to the reporter</p>
+                  </div>
+                  <form action="{% url 'reports' %}" method="POST">
+                    {% csrf_token %}
+                    <!-- hidden because dont need to show but need the id -->
+                    <input type="text" name="id" value="{{report.id}}" hidden>
+                    <textarea name="email-body" placeholder="clarify the issue" class="input-field"></textarea><br>
+                    <button>Send Email</button>
+                  </form>
+                </div>
+              </div>
+              <!-- ends reply -->
+            </div>
+          </div>
+        </div>
+        <!-- modal end -->
+        <td><a href="{% url 'delete' report.id %}" class="delete btn btn-sm btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <!-- reports data end here -->
+  </table>
+  <div class="snippet">
+    {% if not reports|length %}
+    <div>
+      No report has been reported
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

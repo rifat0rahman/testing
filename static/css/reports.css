@@ -1,0 +1,108 @@
+/* using id like reports for only targeting the attributes that is contaned by the id
+it's trick for managing the css,because one css file can affect another
+*/
+#reports .modal-content{
+        background: #ddeee6;
+    }
+#reports .modal{
+        background-color: rgba(109, 144, 156, 0.274);
+    }
+#reports .table-img {
+        width: 50px;
+        height: 40px;
+        object-fit:cover;
+    }
+
+#reports .modal-img {
+        width: 400px;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+#reports .containers {
+        width: 400px;
+        margin: auto;
+    }
+
+#reports .screenshot {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+
+#reports .modal-footer {
+        display: block;
+        padding: .75rem;
+        border-top: 1px solid #dee2e6;
+        border-bottom-right-radius: calc(.3rem - 1px);
+        border-bottom-left-radius: calc(.3rem - 1px);
+    }
+
+#reports .footer-container {
+        width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+
+#reports .footer-container textarea {
+        width: 100%;
+        height: 50px;
+        margin: 10px;
+        border: 2px solid rgb(44, 43, 44);
+        border-radius: 5px;
+    }
+
+#reports .footer-container button {
+        border: 2px solid rgb(44, 43, 44);
+        background: white;
+        border-radius: 5px;
+        padding: 5px;
+    }
+#reports .header{
+        text-align: center;
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+    }
+    #reports{
+        height: 94vh;
+        background: #ddeee6;
+    }
+#reports .snippet{
+        position: relative;
+        top: 80px !important;
+        text-align: center;
+    }
+
+
+
+
+@media screen and (max-width: 600px) {
+#reports .table {
+    margin: auto;
+    width: 90%;
+    }
+    tbody, td, tfoot, th, thead, tr {
+    font-size: 12px;
+    }
+#reports .dropdown{
+    visibility: hidden;
+    }
+#reports .delete{
+    visibility: hidden;
+    }
+
+#reports .modal{
+    width: 400px;
+    margin: auto !important;
+    }
+#reports .modal-img{
+    width: 350px;
+    }
+#reports .table-img {
+    width: 40px;
+    height: 30px;
+    object-fit:cover;
+    }
+
+}
