@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-@b#7m)51u*@n@v67o7)h^tr^0_wzsi8cbdchv)y_f=+p5f+-i!
 DEBUG = False
 
 # allow heroku app domain here
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['testing012.herokuapp.com']
 
 
 # Application definition
