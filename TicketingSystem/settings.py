@@ -142,9 +142,7 @@ EMAIL_HOST_PASSWORD = ''
 
 #from cloudinary account,django access to cloudinary via that.
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'help-desk-torch',
-    'API_KEY': '383473234397131',
-    'API_SECRET': 'Uko0UeC9X_C63PhS35dFJnOtFM4'
+    #cloud details
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
